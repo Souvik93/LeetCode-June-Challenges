@@ -30,3 +30,80 @@ Both strings consists only of lowercase characters.
 
 
 */
+
+
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+        
+        if(s.length()>t.length()) {
+            return false;
+        }
+        
+        int c=0;
+        int d=0;
+        while(c<t.length() && d<s.length()) {
+            
+            boolean isFound = false;
+            for(int i=c;i<t.length();i++) {
+                
+                if(s.charAt(d)==t.charAt(i)) {
+                    c=i+1;
+                    d++;
+                    isFound = true;
+                    break;
+                }
+                
+            }
+            
+            if(!isFound) {
+                return false;
+            }
+            
+        }
+        
+        
+        return d==s.length();
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+int i = 0;
+        int j = 0;
+        
+        while (j < t.length()) {
+            if (i == s.length()) {
+                return true;
+            }
+            if (s.charAt(i) == t.charAt(j)) {
+                i++;
+            }
+            j++;
+        }
+        
+        return i == s.length(); 
+*/
